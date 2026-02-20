@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cachaçeiro</title>
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#0a3cff,#001a66);
+    font-family:Arial, Helvetica, sans-serif;
+    color:#fff;
+  }
+  .panel{
+    width:340px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 25px rgba(0,0,0,.6);
+    text-align:center;
+  }
+  h1{margin:0 0 5px 0}
+  .slogan{opacity:.9;margin-bottom:15px}
+  .btn{
+    width:100%;
+    margin:6px 0;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#ffffff22;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+  }
+  .btn:hover{background:#ffffff44}
+  .active{background:#00ff9c;color:#002}
+  .inject{
+    margin-top:12px;
+    background:#fff;
+    color:#0030aa;
+    font-size:16px;
+  }
+  .status{margin-top:10px;height:18px;font-size:14px}
+</style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Cachaçeiro</h1>
+    <div class="slogan">eu bebo sim e estou vivendo</div><button class="btn" onclick="toggle(this)">Mira Assistida Visual</button>
+<button class="btn" onclick="toggle(this)">Campo de Visão</button>
+<button class="btn" onclick="toggle(this)">Estabilizador</button>
+<button class="btn" onclick="toggle(this)">Holograma</button>
+<button class="btn" onclick="toggle(this)">Modo Destaque</button>
+
+<button class="btn inject" onclick="start()">INICIAR</button>
+<div class="status" id="status"></div>
+
+  </div><script>
+function toggle(el){
+  el.classList.toggle('active');
+}
+
+function start(){
+  let s=document.getElementById('status');
+  let n=5;
+  s.innerText='Preparando '+n;
+  let t=setInterval(()=>{
+    n--;
+    if(n<=0){
+      clearInterval(t);
+      s.innerText='Pronto!';
+    }else s.innerText='Preparando '+n;
+  },1000);
+}
+</script></body>
+</html>
